@@ -1,0 +1,6 @@
+{
+  "name": "Anatolia Food & Drink | Kalkan",
+  "description": "Kalkan'da güzel bir masa, iyi bir akşam. Akdeniz ve Türk mutfağı, taş fırın lezzetleri ve imza kokteyller. Şehitler Caddesi No:41, Kalkan.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

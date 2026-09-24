@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Monogram Serif Letter 'A' -->
+  <path d="M 40 160 L 60 160 L 98 42 L 80 42 Z" fill="#0B1B2B"/>
+  <path d="M 95 42 L 115 42 L 165 160 L 140 160 Z" fill="#0B1B2B"/>
+  <path d="M 82 42 L 118 42 L 100 35 Z" fill="#0B1B2B"/>
+  <path d="M 35 162 L 68 162 L 68 158 L 35 158 Z" fill="#0B1B2B"/>
+  <path d="M 132 162 L 170 162 L 170 158 L 132 158 Z" fill="#0B1B2B"/>
+  <path d="M 68 120 L 132 120 L 132 124 L 68 124 Z" fill="#0B1B2B" opacity="0.8"/>
+  <!-- Entwined Olive Branch -->
+  <g>
+    <path d="M 45 155 Q 85 125 125 105 Q 155 92 180 88" stroke="#0B1B2B" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 65 142 Q 62 125 75 118 Q 80 132 68 140 Z" fill="#0B1B2B" />
+    <path d="M 85 128 Q 78 145 92 150 Q 98 135 88 126 Z" fill="#0B1B2B" />
+    <path d="M 98 116 Q 102 98 116 94 Q 120 110 102 115 Z" fill="#0B1B2B" />
+    <path d="M 115 108 Q 112 125 126 128 Q 130 112 118 106 Z" fill="#0B1B2B" />
+    <path d="M 132 98 Q 140 82 155 80 Q 155 96 136 97 Z" fill="#0B1B2B" />
+    <path d="M 148 93 Q 150 110 165 110 Q 166 94 152 91 Z" fill="#0B1B2B" />
+    <path d="M 162 88 Q 175 75 188 78 Q 185 90 166 87 Z" fill="#0B1B2B" />
+  </g>
+</svg>

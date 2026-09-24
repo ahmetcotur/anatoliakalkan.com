@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  
+  /* Signature Anatolia Tabela & Venue Color Palette: Warm Cream-Yellow */
+  --color-brand-tabela: #F5ECC8;
+  --color-brand-tabela-light: #FAF4DC;
+  --color-brand-tabela-border: #E5D5A6;
+  --color-brand-cream-deep: #EDE1B7;
+  --color-brand-warm-sand: #FBF8EE;
+  
+  /* Text & Contrast */
+  --color-brand-espresso: #201E19;
+  --color-brand-charcoal: #2D2A24;
+  --color-brand-olive-dark: #2F3529;
+  
+  /* Mediterranean Accent Tones */
+  --color-brand-terracotta: #C85A32;
+  --color-brand-sunset: #DC653B;
+  --color-brand-gold: #C99632;
+  --color-brand-olive: #68734A;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #FAF5E8;
+  color: #201E19;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Custom smooth transitions */
+.transition-smooth {
+  transition: all 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle warm sun texture */
+.bg-tabela-pattern {
+  background-color: #FAF4DC;
+  background-image: radial-gradient(#DECFA5 0.75px, transparent 0.75px);
+  background-size: 20px 20px;
+}

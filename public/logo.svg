@@ -1,0 +1,20 @@
+<svg viewBox="0 0 400 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Olive Branch -->
+  <g transform="translate(10, 10)">
+    <path d="M 20 62 Q 130 52 230 60 Q 320 68 385 64" stroke="#0B1B2B" stroke-width="4" stroke-linecap="round"/>
+    <path d="M 60 58 Q 75 35 105 32 Q 95 55 60 58 Z" fill="#0B1B2B"/>
+    <path d="M 115 54 Q 135 22 170 20 Q 155 48 115 54 Z" fill="#0B1B2B"/>
+    <path d="M 180 56 Q 200 15 240 18 Q 225 50 180 56 Z" fill="#0B1B2B"/>
+    <path d="M 245 60 Q 265 24 305 30 Q 290 56 245 60 Z" fill="#0B1B2B"/>
+    <path d="M 310 63 Q 330 38 365 44 Q 350 62 310 63 Z" fill="#0B1B2B"/>
+    <path d="M 45 62 Q 35 85 20 100 Q 40 85 55 64 Z" fill="#0B1B2B"/>
+    <path d="M 95 58 Q 80 92 60 110 Q 90 95 105 60 Z" fill="#0B1B2B"/>
+    <path d="M 150 56 Q 140 95 130 115 Q 160 95 165 60 Z" fill="#0B1B2B"/>
+    <path d="M 215 58 Q 210 98 205 116 Q 230 92 230 62 Z" fill="#0B1B2B"/>
+    <path d="M 280 62 Q 285 96 300 112 Q 305 88 290 64 Z" fill="#0B1B2B"/>
+    <path d="M 345 64 Q 355 90 380 100 Q 375 80 355 66 Z" fill="#0B1B2B"/>
+  </g>
+  <!-- Text -->
+  <text x="200" y="180" font-family="'Playfair Display', Georgia, serif" font-size="44" font-weight="500" letter-spacing="8" fill="#0B1B2B" text-anchor="middle">ANATOLIA</text>
+  <text x="200" y="215" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="14" font-weight="600" letter-spacing="6" fill="#0B1B2B" text-anchor="middle">FOOD &amp; DRINK</text>
+</svg>
