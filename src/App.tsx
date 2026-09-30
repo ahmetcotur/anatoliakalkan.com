@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { getInitialLanguage, LANGUAGE_STORAGE_KEY, t } from './i18n';
+import React, { useEffect, useState } from 'react';
 import { Language } from './types';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -14,8 +15,17 @@ import { MobileBottomBar } from './components/MobileBottomBar';
 import { ReservationModal } from './components/ReservationModal';
 
 export default function App() {
-  const [currentLang, setCurrentLang] = useState<Language>('tr');
+  const [currentLang, setCurrentLang] = useState<Language>(getInitialLanguage);
   const [isReservationOpen, setIsReservationOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = currentLang;
+    document.title = t(currentLang, 'pageTitle');
+    document.querySelector('meta[name="description"]')?.setAttribute('content', t(currentLang, 'pageDescription'));
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', t(currentLang, 'pageTitle'));
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', t(currentLang, 'pageDescription'));
+    try { localStorage.setItem(LANGUAGE_STORAGE_KEY, currentLang); } catch { /* Storage may be disabled. */ }
+  }, [currentLang]);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF5E8] text-[#201E19]">
@@ -37,13 +47,13 @@ export default function App() {
         {/* Physical Signboard & Street Front Presence ("Tabela & Mekân Kimliği") */}
         <SignboardShowcase currentLang={currentLang} />
 
-        {/* Signature Cocktails Spotlight (Anatolia Sunset, Mediterranean Breeze, etc.) */}
+        {/* Signature Cocktails Spotlight (Recipes from the supplied drinks menu) */}
         <SignatureCocktails
           currentLang={currentLang}
           onOpenReservation={() => setIsReservationOpen(true)}
         />
 
-        {/* Full Interactive Menu (Categorized, Searchable, Filterable) */}
+        {/* Complete Lunch, Dinner & Drinks Menu */}
         <MenuSection
           currentLang={currentLang}
           onOpenReservation={() => setIsReservationOpen(true)}

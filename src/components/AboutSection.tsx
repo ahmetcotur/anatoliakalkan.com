@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React from 'react';
 import { Heart, Compass, Clock, ShieldCheck } from 'lucide-react';
 import { Language } from '../types';
@@ -18,13 +19,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
           <div className="lg:col-span-7 space-y-6">
             <div className="text-xs uppercase tracking-widest text-[#C85A32] font-semibold flex items-center gap-2">
               <Compass className="w-3.5 h-3.5" />
-              <span>{currentLang === 'tr' ? 'Hikâyemiz & Felsefemiz' : 'Our Story & Philosophy'}</span>
+              <span>{t(currentLang, 'ourStoryPhilosophy')}</span>
             </div>
 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold tracking-tight text-[#201E19] leading-tight text-balance">
-              {currentLang === 'tr'
-                ? 'Kalkan’ın Gün Boyu Yaşayan, Akşamı Uzatan Masası.'
-                : 'A Welcoming Table that Takes Its Time in Kalkan.'}
+              {t(currentLang, 'aWelcomingTableThatTakesIts')}
             </h2>
 
             <p className="text-lg text-[#3E382B] font-normal leading-relaxed">
@@ -42,12 +41,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
                   <Heart className="w-4 h-4" />
                 </div>
                 <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                  {currentLang === 'tr' ? 'Sıcak Aile Dokusu' : 'Warm Hospitality'}
+                  {t(currentLang, 'warmHospitality')}
                 </h3>
                 <p className="text-xs text-[#524B3A] font-normal">
-                  {currentLang === 'tr'
-                    ? 'Misafirini evinde gibi hissettiren samimi ve güler yüzlü servis.'
-                    : 'Attentive, smiling service that makes you feel genuinely cared for.'}
+                  {t(currentLang, 'attentiveSmilingServiceThatMakesYou')}
                 </p>
               </div>
 
@@ -56,12 +53,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
                   <Clock className="w-4 h-4" />
                 </div>
                 <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                  {currentLang === 'tr' ? 'Acele Ettirmeyen Masa' : 'Unhurried Evenings'}
+                  {t(currentLang, 'unhurriedEvenings')}
                 </h3>
                 <p className="text-xs text-[#524B3A] font-normal">
-                  {currentLang === 'tr'
-                    ? 'Yemeğin, içkinin ve sohbetin kendi doğal ritminde aktığı bir ortam.'
-                    : 'A relaxing dining pace where dinner turns into great conversation.'}
+                  {t(currentLang, 'aRelaxingDiningPaceWhereDinner')}
                 </p>
               </div>
 
@@ -70,12 +65,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
                   <ShieldCheck className="w-4 h-4" />
                 </div>
                 <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                  {currentLang === 'tr' ? 'Özenli Tabaklar' : 'Thoughtful Food'}
+                  {t(currentLang, 'thoughtfulFood')}
                 </h3>
                 <p className="text-xs text-[#524B3A] font-normal">
-                  {currentLang === 'tr'
-                    ? 'Taş fırından çıkan çıtır hamurlar, taze Akdeniz mezeleri ve imza kokteyller.'
-                    : 'Fresh stone-oven baking, seasonal Mediterranean mezze and craft drinks.'}
+                  {t(currentLang, 'freshStoneOvenBakingSeasonalMediterranean')}
                 </p>
               </div>
             </div>
@@ -88,7 +81,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
             <div className="rounded-2xl overflow-hidden shadow-xl border-2 border-[#DECFA5] group">
               <img
                 src="/images/brand/gridpost.jpg"
-                alt="Anatolia Food & Drink Ambiance, Dishes and Drinks"
+                alt={t(currentLang, 'collageAlt')}
                 className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-500"
               />
             </div>
@@ -101,29 +94,27 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ currentLang }) => {
               </span>
 
               <blockquote className="font-serif text-xl sm:text-2xl text-[#201E19] font-medium italic leading-snug">
-                {currentLang === 'tr'
-                  ? '“İyi yemek, özenli içecekler ve acele ettirmeyen samimi bir Akdeniz masası.”'
-                  : '“Good food, thoughtful drinks, and the kind of unhurried Mediterranean table you remember.”'}
+                {t(currentLang, 'goodFoodThoughtfulDrinksAndThe')}
               </blockquote>
 
               <div className="space-y-2 text-xs text-[#4C4435] pt-4 border-t border-[#DECFA5]">
                 <div className="flex justify-between py-1 border-b border-[#DECFA5]/60">
-                  <span className="text-[#6B604B] font-medium">{currentLang === 'tr' ? 'Adres:' : 'Address:'}</span>
+                  <span className="text-[#6B604B] font-medium">{t(currentLang, 'address')}</span>
                   <span className="font-semibold text-[#201E19] text-right">Şehitler Cd. No: 41, Kalkan</span>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#DECFA5]/60">
-                  <span className="text-[#6B604B] font-medium">{currentLang === 'tr' ? 'Telefon:' : 'Phone:'}</span>
+                  <span className="text-[#6B604B] font-medium">{t(currentLang, 'phone')}</span>
                   <a href={`tel:${RESTAURANT_INFO.phoneRaw}`} className="font-bold text-[#C85A32] hover:underline">
                     {RESTAURANT_INFO.phone}
                   </a>
                 </div>
                 <div className="flex justify-between py-1 border-b border-[#DECFA5]/60">
-                  <span className="text-[#6B604B] font-medium">{currentLang === 'tr' ? 'Çalışma Saatleri:' : 'Hours:'}</span>
-                  <span className="font-semibold text-[#201E19]">{RESTAURANT_INFO.openingHours}</span>
+                  <span className="text-[#6B604B] font-medium">{t(currentLang, 'hours')}</span>
+                  <span className="font-semibold text-[#201E19]">{RESTAURANT_INFO.openingHours[currentLang]}</span>
                 </div>
                 <div className="flex justify-between py-1">
-                  <span className="text-[#6B604B] font-medium">{currentLang === 'tr' ? 'Mutfak:' : 'Cuisine:'}</span>
-                  <span className="font-semibold text-[#201E19]">Akdeniz · Taş Fırın · Kokteyl Bar</span>
+                  <span className="text-[#6B604B] font-medium">{t(currentLang, 'cuisine')}</span>
+                  <span className="font-semibold text-[#201E19]">{t(currentLang, 'cuisineValue')}</span>
                 </div>
               </div>
 

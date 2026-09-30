@@ -1,3 +1,4 @@
+import { t, LANGUAGES, LANGUAGE_NAMES } from '../i18n';
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Phone } from 'lucide-react';
 import { Language } from '../types';
@@ -26,12 +27,12 @@ export const Header: React.FC<HeaderProps> = ({
   }, []);
 
   const navLinks = [
-    { href: '#menu', label: currentLang === 'tr' ? 'Menü' : 'Menu' },
-    { href: '#cocktails', label: currentLang === 'tr' ? 'Kokteyller' : 'Cocktails' },
-    { href: '#atmosphere', label: currentLang === 'tr' ? 'Mekân' : 'Atmosphere' },
-    { href: '#gallery', label: currentLang === 'tr' ? 'Galeri' : 'Gallery' },
-    { href: '#about', label: currentLang === 'tr' ? 'Hakkımızda' : 'About' },
-    { href: '#visit', label: currentLang === 'tr' ? 'Ziyaret' : 'Visit' },
+    { href: '#menu', label: t(currentLang, 'menu') },
+    { href: '#cocktails', label: t(currentLang, 'cocktails') },
+    { href: '#atmosphere', label: t(currentLang, 'atmosphere') },
+    { href: '#gallery', label: t(currentLang, 'gallery') },
+    { href: '#about', label: t(currentLang, 'about') },
+    { href: '#visit', label: t(currentLang, 'visit') },
   ];
 
   return (
@@ -58,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
 
           {/* Zone 2: 4-6 clean text navigation links */}
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-[#423C2D]">
+          <nav className="hidden xl:flex items-center gap-4 text-sm font-medium text-[#423C2D]">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -71,21 +72,20 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Zone 3: 1-2 primary actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             {/* Language Switcher */}
-            <button
-              onClick={() => onLanguageChange(currentLang === 'tr' ? 'en' : 'tr')}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#3B3527] hover:text-[#201E19] bg-[#FAF4DC] hover:bg-[#EDE1B7] border border-[#DECFA5] transition-colors whitespace-nowrap shadow-2xs"
-              aria-label="Dil Değiştir / Switch Language"
-            >
-              <Globe className="w-3.5 h-3.5 text-[#C85A32]" />
-              <span>{currentLang === 'tr' ? 'EN' : 'TR'}</span>
-            </button>
+            <label className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg bg-[#FAF4DC] border border-[#DECFA5] shadow-2xs">
+              <Globe className="w-3.5 h-3.5 text-[#C85A32]" aria-hidden="true" />
+              <span className="sr-only">{t(currentLang, 'language')}</span>
+              <select id="site-language" value={currentLang} onChange={(e) => onLanguageChange(e.target.value as Language)} className="bg-transparent text-xs font-semibold text-[#3B3527] py-0.5 cursor-pointer focus:outline-[#C85A32]" aria-label={t(currentLang, 'language')}>
+                {LANGUAGES.map((language) => <option key={language} value={language} lang={language} title={LANGUAGE_NAMES[language]}>{language.toUpperCase()}</option>)}
+              </select>
+            </label>
 
             {/* Quick Call desktop */}
             <a
               href={`tel:${RESTAURANT_INFO.phoneRaw}`}
-              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[#3B3527] hover:text-[#201E19] border border-[#DECFA5] bg-[#FAF4DC] hover:bg-[#EDE1B7] transition-colors whitespace-nowrap shadow-2xs"
+              className="hidden 2xl:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-[#3B3527] hover:text-[#201E19] border border-[#DECFA5] bg-[#FAF4DC] hover:bg-[#EDE1B7] transition-colors whitespace-nowrap shadow-2xs"
             >
               <Phone className="w-3.5 h-3.5 text-[#C85A32]" />
               <span>{RESTAURANT_INFO.phone}</span>
@@ -94,16 +94,16 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Book Table Primary CTA */}
             <button
               onClick={onOpenReservation}
-              className="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#C85A32] hover:bg-[#B54A25] active:scale-[0.98] rounded-xl transition-all shadow-sm shadow-[#C85A32]/25 whitespace-nowrap cursor-pointer"
+              className="hidden sm:inline-flex px-3 py-2 text-xs font-semibold text-white bg-[#C85A32] hover:bg-[#B54A25] active:scale-[0.98] rounded-xl transition-all shadow-sm shadow-[#C85A32]/25 whitespace-nowrap cursor-pointer"
             >
-              {currentLang === 'tr' ? 'Rezervasyon Yap' : 'Book a Table'}
+              {t(currentLang, 'bookATable')}
             </button>
 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg text-[#201E19] hover:bg-[#EDE1B7]"
-              aria-label="Menüyü aç"
+              className="xl:hidden p-2 rounded-lg text-[#201E19] hover:bg-[#EDE1B7]"
+              aria-label={t(currentLang, mobileMenuOpen ? 'closeMenu' : 'openMenu')} aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -113,7 +113,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Drawer Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#FAF4DC] border-b border-[#DECFA5] px-4 pt-3 pb-5 space-y-3 shadow-md">
+        <div className="xl:hidden bg-[#FAF4DC] border-b border-[#DECFA5] px-4 pt-3 pb-5 space-y-3 shadow-md">
           <nav className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a

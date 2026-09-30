@@ -8,7 +8,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "menu:html": "node scripts/generate-menu-html.mjs",
+    "prebuild": "npm run menu:html",
+    "check:translations": "node scripts/check-translations.mjs"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

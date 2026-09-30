@@ -1,3 +1,4 @@
+import { t, UI_MESSAGES } from '../i18n';
 import React, { useState } from 'react';
 import { Camera, X, ChevronLeft, ChevronRight, Maximize2, Sparkles } from 'lucide-react';
 import { Language } from '../types';
@@ -9,10 +10,12 @@ interface GalleryItem {
   title: {
     tr: string;
     en: string;
+    ru: string;
   };
   subtitle: {
     tr: string;
     en: string;
+    ru: string;
   };
 }
 
@@ -21,113 +24,113 @@ const GALLERY_ITEMS: GalleryItem[] = [
     id: 'g-1',
     src: '/images/gallery/signboard-day.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Şehitler Caddesi Girişi', en: 'Şehitler Street Entrance' },
-    subtitle: { tr: 'Gündüz Taş Duvar & Tabela', en: 'Historic Stone Wall & Sign' },
+    title: { ...UI_MESSAGES.ehitlerStreetEntrance },
+    subtitle: { ...UI_MESSAGES.historicStoneWallSign },
   },
   {
     id: 'g-2',
     src: '/images/gallery/terrace-evening.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Akşamüstü Teras Masaları', en: 'Twilight Terrace Dining' },
-    subtitle: { tr: 'Mum Işığı & Ahşap Masalar', en: 'Candlelight & Wooden Tables' },
+    title: { ...UI_MESSAGES.twilightTerraceDining },
+    subtitle: { ...UI_MESSAGES.candlelightWoodenTables },
   },
   {
     id: 'g-3',
     src: '/images/gallery/cocktail-cheers.jpg',
     category: 'cocktails_bar',
-    title: { tr: 'İmza Kokteyller & Kutlama', en: 'Signature Cocktails & Toast' },
-    subtitle: { tr: 'Teras Barından Renkli Kadehler', en: 'Artisanal Bar Mixology' },
+    title: { ...UI_MESSAGES.signatureCocktailsToast },
+    subtitle: { ...UI_MESSAGES.artisanalBarMixology },
   },
   {
     id: 'g-4',
     src: '/images/gallery/terrace-diners-1.jpg',
     category: 'atmosphere',
-    title: { tr: 'Sıcak Akşam Sohbetleri', en: 'Warm Evening Conversations' },
-    subtitle: { tr: 'Akdeniz Esintisinde Uzun Masalar', en: 'Unhurried Coastal Dining' },
+    title: { ...UI_MESSAGES.warmEveningConversations },
+    subtitle: { ...UI_MESSAGES.unhurriedCoastalDining },
   },
   {
     id: 'g-5',
     src: '/images/gallery/bar-cocktail-craft.jpg',
     category: 'cocktails_bar',
-    title: { tr: 'Bar Şefi & Karışımlar', en: 'Cocktail Craft & Bar' },
-    subtitle: { tr: 'Özenle Hazırlanan Reçeteler', en: 'Fresh Botanical Ingredients' },
+    title: { ...UI_MESSAGES.cocktailCraftBar },
+    subtitle: { ...UI_MESSAGES.freshBotanicalIngredients },
   },
   {
     id: 'g-6',
     src: '/images/gallery/wine-and-friends.jpg',
     category: 'atmosphere',
-    title: { tr: 'Şarap Eşliğinde Akşam Yemeği', en: 'Wine & Dinner Gathering' },
-    subtitle: { tr: 'Samimi Dostluk Masaları', en: 'Memorable Table Gatherings' },
+    title: { ...UI_MESSAGES.wineDinnerGathering },
+    subtitle: { ...UI_MESSAGES.memorableTableGatherings },
   },
   {
     id: 'g-7',
     src: '/images/gallery/signboard-night.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Gece Işıklarında Anatolia', en: 'Anatolia by Night' },
-    subtitle: { tr: 'Işıltılı Sokak Atmosferi', en: 'Illuminated Kalkan Street' },
+    title: { ...UI_MESSAGES.anatoliaByNight },
+    subtitle: { ...UI_MESSAGES.illuminatedKalkanStreet },
   },
   {
     id: 'g-8',
     src: '/images/gallery/candlelit-night.jpg',
     category: 'atmosphere',
-    title: { tr: 'Mum Işığında Akdeniz Gecesi', en: 'Candlelit Mediterranean Night' },
-    subtitle: { tr: 'Romantik & Sakin Masa Düzeni', en: 'Ambient Terrace Setting' },
+    title: { ...UI_MESSAGES.candlelitMediterraneanNight },
+    subtitle: { ...UI_MESSAGES.ambientTerraceSetting },
   },
   {
     id: 'g-9',
     src: '/images/gallery/terrace-sunlight.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Gündüz Gölgeli Avlu', en: 'Shaded Daytime Courtyard' },
-    subtitle: { tr: 'Ferah Teras & Kahvaltı Düzeni', en: 'Airy Morning & Brunch Setup' },
+    title: { ...UI_MESSAGES.shadedDaytimeCourtyard },
+    subtitle: { ...UI_MESSAGES.airyMorningBrunchSetup },
   },
   {
     id: 'g-10',
     src: '/images/gallery/dinner-gathering.jpg',
     category: 'atmosphere',
-    title: { tr: 'Aile & Dost Masaları', en: 'Family & Friends Gathering' },
-    subtitle: { tr: 'Güler Yüzlü Misafirperverlik', en: 'Warm Welcoming Spirit' },
+    title: { ...UI_MESSAGES.familyFriendsGathering },
+    subtitle: { ...UI_MESSAGES.warmWelcomingSpirit },
   },
   {
     id: 'g-11',
     src: '/images/gallery/guest-toast.jpg',
     category: 'cocktails_bar',
-    title: { tr: 'Kalkan Gün Batımı Kadehleri', en: 'Sunset Toasts in Kalkan' },
-    subtitle: { tr: 'Ferahlatıcı Yaz İçecekleri', en: 'Refreshing Summer Coolers' },
+    title: { ...UI_MESSAGES.sunsetToastsInKalkan },
+    subtitle: { ...UI_MESSAGES.refreshingSummerCoolers },
   },
   {
     id: 'g-12',
     src: '/images/gallery/table-conversation.jpg',
     category: 'atmosphere',
-    title: { tr: 'Keyifli Akşam Yemeği', en: 'Delightful Dinner Experience' },
-    subtitle: { tr: 'Zengin Akdeniz Menüsü', en: 'Mediterranean Flavors' },
+    title: { ...UI_MESSAGES.delightfulDinnerExperience },
+    subtitle: { ...UI_MESSAGES.mediterraneanFlavors },
   },
   {
     id: 'g-13',
     src: '/images/gallery/terrace-cozy.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Ahşap Pergola & Taş Doku', en: 'Timber Pergola & Stone Wall' },
-    subtitle: { tr: 'Kalkan Mimarisinin Sıcaklığı', en: 'Kalkan Heritage Architecture' },
+    title: { ...UI_MESSAGES.timberPergolaStoneWall },
+    subtitle: { ...UI_MESSAGES.kalkanHeritageArchitecture },
   },
   {
     id: 'g-14',
     src: '/images/gallery/smiling-guests.jpg',
     category: 'atmosphere',
-    title: { tr: 'Güler Yüzler & Anılar', en: 'Smiles & Fond Memories' },
-    subtitle: { tr: 'Unutulmaz Kalkan Hatıraları', en: 'Special Moments at Anatolia' },
+    title: { ...UI_MESSAGES.smilesFondMemories },
+    subtitle: { ...UI_MESSAGES.specialMomentsAtAnatolia },
   },
   {
     id: 'g-15',
     src: '/images/gallery/summer-night-drinks.jpg',
     category: 'cocktails_bar',
-    title: { tr: 'Yaz Gecesi İçecekleri', en: 'Summer Night Refreshments' },
-    subtitle: { tr: 'Buz Gibi Kokteyller & İkramlar', en: 'Handcrafted Drinks' },
+    title: { ...UI_MESSAGES.summerNightRefreshments },
+    subtitle: { ...UI_MESSAGES.handcraftedDrinks },
   },
   {
     id: 'g-16',
     src: '/images/gallery/facade-stone.jpg',
     category: 'terrace_exterior',
-    title: { tr: 'Tarihi Taş Bina Cephesi', en: 'Historic Stone Facade' },
-    subtitle: { tr: 'Şehitler Caddesi No: 41', en: 'Şehitler Street No: 41' },
+    title: { ...UI_MESSAGES.historicStoneFacade },
+    subtitle: { ...UI_MESSAGES.ehitlerStreetNo41 },
   },
 ];
 
@@ -140,10 +143,10 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const categories = [
-    { id: 'all', labelTr: 'Tümü', labelEn: 'All Photos' },
-    { id: 'terrace_exterior', labelTr: 'Mekân & Teras', labelEn: 'Terrace & Architecture' },
-    { id: 'atmosphere', labelTr: 'Akşam & Atmosfer', labelEn: 'Evening Atmosphere' },
-    { id: 'cocktails_bar', labelTr: 'Kokteyl & Bar', labelEn: 'Cocktails & Bar' },
+    { id: 'all', label: UI_MESSAGES.galleryAll },
+    { id: 'terrace_exterior', label: UI_MESSAGES.galleryTerrace },
+    { id: 'atmosphere', label: UI_MESSAGES.galleryEvening },
+    { id: 'cocktails_bar', label: UI_MESSAGES.galleryCocktails },
   ];
 
   const filteredItems = activeCategory === 'all'
@@ -179,20 +182,18 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
           <div>
             <div className="text-xs uppercase tracking-widest text-[#C85A32] font-semibold mb-2 flex items-center gap-2">
               <Camera className="w-3.5 h-3.5" />
-              <span>{currentLang === 'tr' ? 'Fotoğraf Galerisi' : 'Visual Gallery'}</span>
+              <span>{t(currentLang, 'visualGallery')}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold tracking-tight text-[#201E19]">
-              {currentLang === 'tr' ? 'Anatolia’dan Kareler' : 'Moments at Anatolia'}
+              {t(currentLang, 'momentsAtAnatolia')}
             </h2>
             <p className="mt-2 text-[#524B3A] text-sm sm:text-base font-normal max-w-xl">
-              {currentLang === 'tr'
-                ? 'Gündüzün huzurlu gölgesinden geceyi aydınlatan sıcak masalara, imza kokteyllerden keyifli buluşmalara gerçek fotoğraflarımız.'
-                : 'From sunlit pergola mornings to candlelit evening celebrations, explore genuine moments captured at our Kalkan terrace.'}
+              {t(currentLang, 'fromSunlitPergolaMorningsToCandlelit')}
             </p>
           </div>
 
           {/* Filter Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none max-w-full">
             {categories.map((cat) => (
               <button
                 key={cat.id}
@@ -203,7 +204,7 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
                     : 'bg-[#FAF4DC] text-[#423C2D] hover:text-[#201E19] border border-[#DECFA5] hover:bg-[#EDE1B7]'
                 }`}
               >
-                {currentLang === 'tr' ? cat.labelTr : cat.labelEn}
+                {cat.label[currentLang]}
               </button>
             ))}
           </div>
@@ -253,7 +254,7 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
             <button
               onClick={closeLightbox}
               className="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
-              aria-label="Kapat"
+              aria-label={t(currentLang, 'close')}
             >
               <X className="w-5 h-5" />
             </button>
@@ -265,7 +266,7 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
                 prevImage();
               }}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
-              aria-label="Önceki"
+              aria-label={t(currentLang, 'previous')}
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
@@ -277,7 +278,7 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
                 nextImage();
               }}
               className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 hover:bg-black/80 border border-white/20 text-white flex items-center justify-center transition-colors z-50 cursor-pointer"
-              aria-label="Sonraki"
+              aria-label={t(currentLang, 'next')}
             >
               <ChevronRight className="w-6 h-6" />
             </button>

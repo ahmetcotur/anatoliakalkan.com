@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React from 'react';
 import { Phone, MessageCircle, Utensils, Calendar } from 'lucide-react';
 import { Language } from '../types';
@@ -13,9 +14,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
   onOpenReservation,
 }) => {
   const whatsappMessage = encodeURIComponent(
-    currentLang === 'tr'
-      ? 'Merhaba Anatolia Food & Drink, masa rezervasyonu için yazıyorum.'
-      : 'Hello Anatolia Food & Drink, I would like to make a table reservation.'
+    t(currentLang, 'helloAnatoliaFoodDrinkIWould2')
   );
 
   return (
@@ -29,7 +28,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
         >
           <Phone className="w-4 h-4 text-[#C85A32] mb-1" />
           <span className="text-[10px] font-semibold leading-none">
-            {currentLang === 'tr' ? 'Ara' : 'Call'}
+            {t(currentLang, 'call2')}
           </span>
         </a>
 
@@ -51,7 +50,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
         >
           <Utensils className="w-4 h-4 text-[#C85A32] mb-1" />
           <span className="text-[10px] font-semibold leading-none">
-            {currentLang === 'tr' ? 'Menü' : 'Menu'}
+            {t(currentLang, 'menu')}
           </span>
         </a>
 
@@ -62,7 +61,7 @@ export const MobileBottomBar: React.FC<MobileBottomBarProps> = ({
         >
           <Calendar className="w-4 h-4 mb-1" />
           <span className="text-[10px] font-bold leading-none">
-            {currentLang === 'tr' ? 'Ayırt' : 'Book'}
+            {t(currentLang, 'book')}
           </span>
         </button>
 

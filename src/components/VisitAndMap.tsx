@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, ExternalLink, Copy, Check, MessageCircle } from 'lucide-react';
 import { Language } from '../types';
@@ -18,9 +19,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
   };
 
   const whatsappMessage = encodeURIComponent(
-    currentLang === 'tr'
-      ? 'Merhaba Anatolia Food & Drink, rezervasyon hakkında bilgi almak istiyorum.'
-      : 'Hello Anatolia Food & Drink, I would like to inquire about a table reservation.'
+    t(currentLang, 'helloAnatoliaFoodDrinkIWould')
   );
 
   return (
@@ -31,17 +30,13 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
         <div className="max-w-3xl mb-14">
           <div className="text-xs uppercase tracking-widest text-[#C85A32] font-semibold mb-2 flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5" />
-            <span>{currentLang === 'tr' ? 'Ulaşım & Ziyaret' : 'Location & Visit'}</span>
+            <span>{t(currentLang, 'locationVisit')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-semibold tracking-tight text-[#201E19] text-balance">
-            {currentLang === 'tr'
-              ? 'Şehitler Caddesi’nde Bizi Ziyaret Edin'
-              : 'Visit Us on Şehitler Street'}
+            {t(currentLang, 'visitUsOnEhitlerStreet')}
           </h2>
           <p className="mt-3 text-[#524B3A] text-base sm:text-lg font-normal leading-relaxed">
-            {currentLang === 'tr'
-              ? "Kalkan merkezinde, Şehitler Caddesi üzerinde ferah bir buluşma noktası. Rezervasyon veya yol tarifi için bize dilediğiniz zaman ulaşabilirsiniz."
-              : 'Conveniently located on Şehitler Street in central Kalkan. Reach out for table inquiries, directions, or walk right in.'}
+            {t(currentLang, 'convenientlyLocatedOnEhitlerStreetIn')}
           </p>
         </div>
 
@@ -60,7 +55,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                   </div>
                   <div>
                     <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                      {currentLang === 'tr' ? 'Mekân Adresi' : 'Address'}
+                      {t(currentLang, 'address2')}
                     </h3>
                     <p className="text-xs text-[#7A6F5A]">Kalkan / Kaş / Antalya</p>
                   </div>
@@ -69,7 +64,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                 <button
                   onClick={handleCopyAddress}
                   className="p-2 rounded-lg text-[#615641] hover:text-[#201E19] hover:bg-[#EDE1B7] transition-colors cursor-pointer"
-                  title={currentLang === 'tr' ? 'Adresi Kopyala' : 'Copy Address'}
+                  title={t(currentLang, 'copyAddress')}
                 >
                   {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                 </button>
@@ -86,12 +81,12 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs text-[#C85A32] font-semibold hover:underline"
                 >
-                  <span>{currentLang === 'tr' ? 'Google Haritalar’da Aç' : 'Open in Google Maps'}</span>
+                  <span>{t(currentLang, 'openInGoogleMaps')}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
                 </a>
                 {copied && (
                   <span className="text-[11px] text-emerald-600 font-medium">
-                    ✓ {currentLang === 'tr' ? 'Kopyalandı' : 'Copied'}
+                    ✓ {t(currentLang, 'copied')}
                   </span>
                 )}
               </div>
@@ -105,9 +100,9 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                 </div>
                 <div>
                   <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                    {currentLang === 'tr' ? 'Rezervasyon & İletişim' : 'Reservations & Phone'}
+                    {t(currentLang, 'reservationsPhone')}
                   </h3>
-                  <p className="text-xs text-[#7A6F5A]">Doğrudan Arama veya WhatsApp</p>
+                  <p className="text-xs text-[#7A6F5A]">{t(currentLang, 'directContact')}</p>
                 </div>
               </div>
 
@@ -121,7 +116,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                     href={`tel:${RESTAURANT_INFO.phoneRaw}`}
                     className="px-3 py-1 text-xs font-semibold rounded-lg bg-[#201E19] text-[#FAF4DC] hover:bg-[#343026] transition-colors shadow-2xs"
                   >
-                    {currentLang === 'tr' ? 'Hemen Ara' : 'Call'}
+                    {t(currentLang, 'call')}
                   </a>
                 </div>
 
@@ -136,7 +131,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                     rel="noopener noreferrer"
                     className="px-3 py-1 text-xs font-semibold rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 transition-colors shadow-2xs"
                   >
-                    {currentLang === 'tr' ? 'Mesaj Gönder' : 'WhatsApp'}
+                    {t(currentLang, 'whatsapp')}
                   </a>
                 </div>
 
@@ -149,7 +144,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                     href={`mailto:${RESTAURANT_INFO.email}`}
                     className="px-3 py-1 text-xs font-semibold rounded-lg bg-[#EDE1B7] text-[#201E19] hover:bg-[#DECFA5] transition-colors"
                   >
-                    E-Posta
+                    {t(currentLang, 'email')}
                   </a>
                 </div>
               </div>
@@ -163,9 +158,9 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                 </div>
                 <div>
                   <h3 className="font-serif text-base font-semibold text-[#201E19]">
-                    {currentLang === 'tr' ? 'Hizmet Saatleri' : 'Service Hours'}
+                    {t(currentLang, 'serviceHours')}
                   </h3>
-                  <p className="text-xs text-[#7A6F5A]">Kahvaltı, Öğle & Akşam Servisi</p>
+                  <p className="text-xs text-[#7A6F5A]">{t(currentLang, 'mealService')}</p>
                 </div>
               </div>
 
@@ -173,7 +168,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                 {RESTAURANT_INFO.openingHoursStructured.map((slot, index) => (
                   <div key={index} className="py-1.5 flex items-center justify-between">
                     <span className="font-medium">
-                      {currentLang === 'tr' ? slot.dayTr : slot.dayEn}
+                      {slot.day[currentLang]}
                     </span>
                     <span className="font-mono text-[#201E19] font-semibold tabular-nums">{slot.hours}</span>
                   </div>
@@ -208,7 +203,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
                   className="px-4 py-2 rounded-xl bg-[#201E19] hover:bg-[#343026] text-[#FAF4DC] text-xs font-semibold flex items-center gap-2 shadow-sm transition-colors whitespace-nowrap"
                 >
                   <MapPin className="w-3.5 h-3.5 text-[#C85A32]" />
-                  <span>{currentLang === 'tr' ? 'Yol Tarifi Al' : 'Get Directions'}</span>
+                  <span>{t(currentLang, 'getDirections')}</span>
                   <ExternalLink className="w-3 h-3 text-[#DECFA5]" />
                 </a>
               </div>
@@ -216,7 +211,7 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
               {/* Real Google Maps Embed */}
               <div className="relative w-full aspect-[16/10] sm:aspect-[16/9] rounded-2xl overflow-hidden border border-[#DECFA5] shadow-md bg-[#EFE3BE]">
                 <iframe
-                  title="Anatolia Food & Drink Google Maps"
+                  title={t(currentLang, 'mapTitle')}
                   src="https://maps.google.com/maps?q=Anatolia+Food+%26+Drink,+%C5%9Eehitler+Cd.+No:+41,+07960+Ka%C5%9F%2FAntalya&t=&z=17&ie=UTF8&iwloc=&output=embed"
                   className="w-full h-full border-0"
                   allowFullScreen
@@ -229,22 +224,18 @@ export const VisitAndMap: React.FC<VisitAndMapProps> = ({ currentLang, onOpenRes
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
                 <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#EFE8DE]">
                   <strong className="text-slate-800 block mb-1">
-                    {currentLang === 'tr' ? 'Yürüyüş Mesafesi:' : 'Walking Access:'}
+                    {t(currentLang, 'walkingAccess')}
                   </strong>
                   <span>
-                    {currentLang === 'tr'
-                      ? 'Kalkan çarşı ve sahil bandına sadece birkaç dakikalık keyifli yürüme mesafesindedir.'
-                      : 'Just a few minutes leisurely walk from Kalkan harbor and central market.'}
+                    {t(currentLang, 'justAFewMinutesLeisurelyWalk')}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-[#EFE8DE]">
                   <strong className="text-slate-800 block mb-1">
-                    {currentLang === 'tr' ? 'Rezervasyon Önerisi:' : 'Booking Tip:'}
+                    {t(currentLang, 'bookingTip')}
                   </strong>
                   <span>
-                    {currentLang === 'tr'
-                      ? 'Akşam servisi için teras masalarımızda önceden rezervasyon yaptırmanızı öneririz.'
-                      : 'For evening dining on the terrace, advance reservation is recommended.'}
+                    {t(currentLang, 'forEveningDiningOnTheTerrace')}
                   </span>
                 </div>
               </div>

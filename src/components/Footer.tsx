@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, ExternalLink, ArrowUp } from 'lucide-react';
 import { Language } from '../types';
@@ -28,9 +29,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
             </div>
 
             <p className="text-sm text-[#BFB39B] font-light leading-relaxed max-w-sm">
-              {currentLang === 'tr'
-                ? "Kalkan Şehitler Caddesi'nde iyi yemek, özenli kokteyller ve acele ettirmeyen samimi bir Akdeniz masası."
-                : 'Thoughtfully prepared food, craft cocktails and an unhurried Mediterranean table on Şehitler Street, Kalkan.'}
+              {t(currentLang, 'thoughtfullyPreparedFoodCraftCocktailsAnd')}
             </p>
 
             <div className="flex items-center gap-3 pt-1">
@@ -59,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 h-9 rounded-xl bg-[#FAF4DC]/10 hover:bg-[#C85A32] text-xs text-[#FAF4DC] hover:text-white flex items-center gap-1.5 transition-colors border border-[#DECFA5]/20"
-                title="Tripadvisor Kaydı"
+                title={t(currentLang, 'listingTripadvisor')}
               >
                 <span>Tripadvisor</span>
                 <ExternalLink className="w-3 h-3" />
@@ -70,9 +69,9 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 h-9 rounded-xl bg-[#FAF4DC]/10 hover:bg-[#C85A32] text-xs text-[#FAF4DC] hover:text-white flex items-center gap-1.5 transition-colors border border-[#DECFA5]/20"
-                title="Google Haritalar"
+                title={t(currentLang, 'googleMaps')}
               >
-                <span>Google Maps</span>
+                <span>{t(currentLang, 'googleMaps')}</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
             </div>
@@ -81,37 +80,37 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
           {/* Quick Links (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#FAF4DC]">
-              {currentLang === 'tr' ? 'Keşfedin' : 'Explore'}
+              {t(currentLang, 'explore')}
             </h4>
             <ul className="space-y-2 text-xs">
               <li>
                 <a href="#menu" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'Menümüz' : 'Our Menu'}
+                  {t(currentLang, 'ourMenu')}
                 </a>
               </li>
               <li>
                 <a href="#cocktails" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'İmza Kokteyller' : 'Signature Cocktails'}
+                  {t(currentLang, 'signatureCocktails')}
                 </a>
               </li>
               <li>
                 <a href="#atmosphere" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'Mekân & Atmosfer' : 'The Space'}
+                  {t(currentLang, 'theSpace')}
                 </a>
               </li>
               <li>
                 <a href="#gallery" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'Fotoğraf Galerisi' : 'Photo Gallery'}
+                  {t(currentLang, 'photoGallery')}
                 </a>
               </li>
               <li>
                 <a href="#about" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'Hakkımızda' : 'Our Story'}
+                  {t(currentLang, 'ourStory')}
                 </a>
               </li>
               <li>
                 <a href="#visit" className="hover:text-[#FAF4DC] transition-colors">
-                  {currentLang === 'tr' ? 'Ulaşım & İletişim' : 'Location & Hours'}
+                  {t(currentLang, 'locationHours')}
                 </a>
               </li>
             </ul>
@@ -120,7 +119,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
           {/* Contact Details (3 cols) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#FAF4DC]">
-              {currentLang === 'tr' ? 'İletişim & Konum' : 'Contact & Visit'}
+              {t(currentLang, 'contactVisit')}
             </h4>
             <div className="space-y-2 text-xs text-[#BFB39B]">
               <div className="flex items-start gap-2">
@@ -141,7 +140,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-3.5 h-3.5 text-[#C85A32] shrink-0" />
-                <span>{RESTAURANT_INFO.openingHours}</span>
+                <span>{RESTAURANT_INFO.openingHours[currentLang]}</span>
               </div>
             </div>
           </div>
@@ -149,18 +148,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
           {/* Reservation CTA (2 cols) */}
           <div className="lg:col-span-2 space-y-3">
             <h4 className="text-xs font-semibold uppercase tracking-wider text-[#FAF4DC]">
-              {currentLang === 'tr' ? 'Rezervasyon' : 'Reservations'}
+              {t(currentLang, 'reservations')}
             </h4>
             <p className="text-xs text-[#9E937D] font-light">
-              {currentLang === 'tr'
-                ? 'Akşam saatleri için teras masalarınızı önceden ayırtabilirsiniz.'
-                : 'Book ahead to secure your preferred table for dinner.'}
+              {t(currentLang, 'bookAheadToSecureYourPreferred')}
             </p>
             <button
               onClick={onOpenReservation}
               className="w-full py-2.5 px-3 rounded-xl bg-[#C85A32] hover:bg-[#B34D28] text-white text-xs font-semibold transition-colors shadow-sm cursor-pointer shadow-[#C85A32]/25"
             >
-              {currentLang === 'tr' ? 'Masa Ayırt' : 'Book a Table'}
+              {t(currentLang, 'bookATable3')}
             </button>
           </div>
 
@@ -169,7 +166,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
         {/* Quiet Sub-Footer */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8C826D]">
           <div>
-            © {new Date().getFullYear()} {RESTAURANT_INFO.brandName}. {currentLang === 'tr' ? 'Tüm hakları saklıdır.' : 'All rights reserved.'}
+            © {new Date().getFullYear()} {RESTAURANT_INFO.brandName}. {t(currentLang, 'allRightsReserved')}
           </div>
 
           <div className="flex items-center gap-4 text-[11px]">
@@ -179,12 +176,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onOpenReservation }
               onClick={scrollToTop}
               className="inline-flex items-center gap-1 hover:text-white transition-colors"
             >
-              <span>{currentLang === 'tr' ? 'Başa Dön' : 'Back to top'}</span>
+              <span>{t(currentLang, 'backToTop')}</span>
               <ArrowUp className="w-3 h-3" />
             </button>
           </div>
         </div>
 
+        <div className="mt-6 pt-5 border-t border-[#DECFA5]/15 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[11px] text-[#8C826D]">
+          <span>{t(currentLang, 'agencyCredit')}</span>
+          <a href="https://voyn.tr" target="_blank" rel="noopener noreferrer" className="text-[#D7C59A] font-semibold tracking-wide hover:text-[#FAF4DC] transition-colors underline-offset-4 hover:underline">voyn.tr</a>
+        </div>
       </div>
     </footer>
   );

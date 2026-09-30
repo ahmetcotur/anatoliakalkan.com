@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface LogoProps {
-  variant?: 'light' | 'dark' | 'terracotta';
+  variant?: 'light' | 'dark' | 'terracotta' | 'white';
   className?: string;
   size?: 'sm' | 'md' | 'lg' | 'xl';
 }

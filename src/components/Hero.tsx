@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React from 'react';
 import { ArrowDown, Clock, MapPin, Sparkles } from 'lucide-react';
 import { Language } from '../types';
@@ -32,11 +33,11 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenReservation }) =>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EFE3BD] border border-[#DECFA5] text-xs text-[#4A412F] tracking-wider shadow-2xs">
               <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
               <span className="font-semibold">
-                {currentLang === 'tr' ? 'Kalkan, Kaş / Antalya' : 'Kalkan, Antalya Riviera'}
+                {t(currentLang, 'kalkanAntalyaRiviera')}
               </span>
               <span className="text-[#8C7D64]">·</span>
               <span className="text-[#5A513E] font-medium">
-                {currentLang === 'tr' ? 'Akdeniz & Taş Fırın & Kokteyl' : 'Mediterranean & Cocktail Bar'}
+                {t(currentLang, 'mediterraneanCocktailBar')}
               </span>
             </div>
 
@@ -56,14 +57,14 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenReservation }) =>
                 onClick={onOpenReservation}
                 className="px-6 py-3.5 text-sm font-semibold text-white bg-[#C85A32] hover:bg-[#B34D28] active:scale-[0.98] rounded-xl transition-all shadow-lg shadow-[#C85A32]/25 whitespace-nowrap cursor-pointer"
               >
-                {currentLang === 'tr' ? 'Rezervasyon Yap' : 'Book a Table'}
+                {t(currentLang, 'bookATable')}
               </button>
 
               <a
                 href="#menu"
                 className="px-6 py-3.5 text-sm font-semibold text-[#201E19] hover:text-[#C85A32] bg-[#FAF4DC] hover:bg-[#EDE1B7] border border-[#DECFA5] rounded-xl transition-all whitespace-nowrap flex items-center gap-2 shadow-2xs"
               >
-                <span>{currentLang === 'tr' ? 'Menüyü Gör' : 'Explore the Menu'}</span>
+                <span>{t(currentLang, 'exploreTheMenu')}</span>
                 <ArrowDown className="w-4 h-4 text-[#C85A32]" />
               </a>
             </div>
@@ -74,16 +75,16 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenReservation }) =>
                 <Clock className="w-4 h-4 text-[#C85A32] shrink-0" />
                 <span>
                   <strong className="text-[#201E19] font-semibold">
-                    {currentLang === 'tr' ? 'Çalışma Saatleri:' : 'Opening Hours:'}
+                    {t(currentLang, 'openingHours')}
                   </strong>{' '}
-                  {RESTAURANT_INFO.openingHours}
+                  {RESTAURANT_INFO.openingHours[currentLang]}
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C85A32] shrink-0" />
                 <span>
                   <strong className="text-[#201E19] font-semibold">
-                    {currentLang === 'tr' ? 'Konum:' : 'Location:'}
+                    {t(currentLang, 'location')}
                   </strong>{' '}
                   {RESTAURANT_INFO.address}
                 </span>
@@ -95,18 +96,19 @@ export const Hero: React.FC<HeroProps> = ({ currentLang, onOpenReservation }) =>
           {/* Right Column: Hero Visual Carrier */}
           <div className="lg:col-span-5 relative">
             <VisualCard
+              currentLang={currentLang}
               type="hero"
               className="shadow-[0_20px_50px_rgba(45,35,15,0.15)] border-2 border-[#E5D5A6]"
             />
             {/* Ambient small floating badge in authentic cream-yellow */}
-            <div className="absolute -bottom-4 -left-4 sm:bottom-6 sm:-left-6 bg-[#FAF4DC]/95 backdrop-blur-md border border-[#DECFA5] px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3">
+            <div className="absolute -bottom-6 -left-4 sm:-bottom-6 sm:-left-6 bg-[#FAF4DC]/95 backdrop-blur-md border border-[#DECFA5] px-4 py-3 rounded-2xl shadow-xl flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#C85A32]/15 border border-[#C85A32]/25 flex items-center justify-center text-lg">
                 🍸
               </div>
               <div>
                 <p className="text-xs font-bold text-[#201E19]">Anatolia Sunset</p>
                 <p className="text-[11px] text-[#5A513E]">
-                  {currentLang === 'tr' ? 'Özel Reçete İmza Kokteyl' : 'House Signature Cocktail'}
+                  {t(currentLang, 'houseSignatureCocktail')}
                 </p>
               </div>
             </div>

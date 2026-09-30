@@ -1,3 +1,4 @@
+import { t } from '../i18n';
 import React from 'react';
 import { MapPin, Navigation, Sparkles, ExternalLink } from 'lucide-react';
 import { Language } from '../types';
@@ -24,7 +25,7 @@ export const SignboardShowcase: React.FC<SignboardShowcaseProps> = ({ currentLan
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-[#DECFA5] aspect-[16/10] group">
               <img
                 src={photoMode === 'day' ? '/images/exterior/signboard-day.jpg' : '/images/exterior/signboard-night.jpg'}
-                alt="Anatolia Food & Drink Tabela - Kalkan"
+                alt={t(currentLang, 'signboardAlt')}
                 className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20 pointer-events-none" />
@@ -37,7 +38,7 @@ export const SignboardShowcase: React.FC<SignboardShowcaseProps> = ({ currentLan
                     photoMode === 'day' ? 'bg-[#FAF4DC] text-[#201E19] font-bold shadow-xs' : 'text-white/80 hover:text-white'
                   }`}
                 >
-                  {currentLang === 'tr' ? 'Gündüz' : 'Day'}
+                  {t(currentLang, 'day')}
                 </button>
                 <button
                   onClick={() => setPhotoMode('night')}
@@ -45,17 +46,17 @@ export const SignboardShowcase: React.FC<SignboardShowcaseProps> = ({ currentLan
                     photoMode === 'night' ? 'bg-[#FAF4DC] text-[#201E19] font-bold shadow-xs' : 'text-white/80 hover:text-white'
                   }`}
                 >
-                  {currentLang === 'tr' ? 'Gece' : 'Night'}
+                  {t(currentLang, 'night')}
                 </button>
               </div>
 
               {/* Bottom location badge */}
               <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs z-10">
                 <span className="font-medium drop-shadow-md">
-                  {currentLang === 'tr' ? 'Şehitler Caddesi Girişimiz' : 'Şehitler Street Storefront'}
+                  {t(currentLang, 'ehitlerStreetStorefront')}
                 </span>
                 <span className="px-2 py-0.5 rounded-md bg-black/40 backdrop-blur-sm border border-white/20 text-[11px] text-amber-200">
-                  {photoMode === 'day' ? (currentLang === 'tr' ? 'Taş Duvar Dokusu' : 'Stone Wall Heritage') : (currentLang === 'tr' ? 'Akşam Işıkları' : 'Evening Ambiance')}
+                  {photoMode === 'day' ? (t(currentLang, 'stoneWallHeritage')) : (t(currentLang, 'eveningAmbiance'))}
                 </span>
               </div>
             </div>
@@ -66,20 +67,16 @@ export const SignboardShowcase: React.FC<SignboardShowcaseProps> = ({ currentLan
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#EFE3BE] border border-[#DECFA5] text-xs font-semibold text-[#4A412F]">
               <Sparkles className="w-3.5 h-3.5 text-[#C85A32]" />
               <span>
-                {currentLang === 'tr' ? 'Mekân & Karşılama Kimliği' : 'Atmosphere & Warm Welcome'}
+                {t(currentLang, 'atmosphereWarmWelcome')}
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif font-semibold text-[#201E19] leading-snug">
-              {currentLang === 'tr'
-                ? "Kalkan'ın Sıcak Taş Dokusu ve Krem Sarısı Sokak Havası"
-                : 'Warm Cream Stone & Mediterranean Street Life in Kalkan'}
+              {t(currentLang, 'warmCreamStoneMediterraneanStreetLife')}
             </h2>
 
             <p className="text-sm sm:text-base text-[#4C4435] font-normal leading-relaxed">
-              {currentLang === 'tr'
-                ? "Şehitler Caddesi'nden geçerken gözünüze çarpan sıcak krem sarısı tabelamız, içeri adım attığınız andan itibaren sizi saran ferah, güler yüzlü ve acele ettirmeyen Akdeniz sofrasının davetidir."
-                : 'Our distinctive warm cream sign on Şehitler Street is an open invitation to an unhurried, welcoming Mediterranean table with genuine family hospitality.'}
+              {t(currentLang, 'ourDistinctiveWarmCreamSignOn')}
             </p>
 
             <div className="pt-2 flex flex-wrap items-center gap-3">
@@ -90,7 +87,7 @@ export const SignboardShowcase: React.FC<SignboardShowcaseProps> = ({ currentLan
                 className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#201E19] text-[#F5ECC8] hover:bg-[#343026] text-xs sm:text-sm font-semibold transition-colors shadow-sm"
               >
                 <Navigation className="w-4 h-4 text-[#C85A32]" />
-                <span>{currentLang === 'tr' ? 'Yol Tarifi Al' : 'Get Directions'}</span>
+                <span>{t(currentLang, 'getDirections')}</span>
                 <ExternalLink className="w-3.5 h-3.5 opacity-70" />
               </a>
 

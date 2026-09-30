@@ -45,3 +45,13 @@ h1, h2, h3, .font-serif {
   background-image: radial-gradient(#DECFA5 0.75px, transparent 0.75px);
   background-size: 20px 20px;
 }
+
+/* System fonts with complete Cyrillic coverage preserve legibility in Russian. */
+html:lang(ru) {
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: Arial, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth { scroll-behavior: auto; }
+}
